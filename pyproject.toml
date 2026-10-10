@@ -1,0 +1,27 @@
+[project]
+name = "salvos"
+version = "0.1.0"
+description = "Pipeline local para organizar salvos do Instagram"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openpyxl>=3.1,<4",
+]
+
+[project.scripts]
+salvos = "salvos.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/salvos"]
